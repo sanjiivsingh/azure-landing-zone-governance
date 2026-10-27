@@ -1,0 +1,23 @@
+flowchart TD
+    subgraph Hierarchy["🏢 Azure Management & Subscription Hierarchy"]
+        MG[Management Group / Subscription Scope]
+    end
+
+    subgraph Initiative["📋 Corporate Governance Initiative"]
+        POL1[Location Guardrail: Approved Regions]
+        POL2[Security Guardrail: Storage TLS 1.2+ & HTTPS]
+        POL3[Tagging: Mandatory CostCenter & Owner]
+    end
+
+    subgraph Enforcement["🛡️ Continuous Policy Engine"]
+        AUDIT[Audit Mode: Reporting & Drift Detection]
+        DENY[Deny Mode: Blocks Non-Compliant Requests]
+    end
+
+    MG -->|Policy Assignment| Initiative
+    Initiative --> POL1
+    Initiative --> POL2
+    Initiative --> POL3
+    POL1 --> Enforcement
+    POL2 --> Enforcement
+    POL3 --> Enforcement

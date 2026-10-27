@@ -1,0 +1,33 @@
+name: Terraform Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Lint & Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.16.0
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Initialize Dev Environment
+        run: |
+          cd environments/dev
+          terraform init -backend=false
+
+      - name: Validate Dev Manifests
+        run: |
+          cd environments/dev
+          terraform validate

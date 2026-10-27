@@ -1,0 +1,7 @@
+flowchart LR
+    A[💻 Git PR] --> B[⚙️ GitHub Actions CI]
+    B --> C[🧪 TFLint & Validate]
+    C --> D[🛡️ Checkov SAST Policy]
+    D --> E[🔒 Peer Approval Gate]
+    E --> F[🚀 Terraform Apply via OIDC]
+    F --> G[📦 Azure Policy State]
