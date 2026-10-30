@@ -1,5 +1,6 @@
 # Azure Governance Landing Zone (Terraform)
 
+[![Status](https://img.shields.io/badge/Status-Statically%20Validated-informational.svg)](#)
 [![Terraform Validate](https://github.com/sanjiivsingh/azure-landing-zone-governance/actions/workflows/terraform-validate.yml/badge.svg)](https://github.com/sanjiivsingh/azure-landing-zone-governance/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
