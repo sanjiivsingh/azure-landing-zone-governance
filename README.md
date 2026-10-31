@@ -1,10 +1,13 @@
-# Azure Governance Landing Zone (Terraform)
+# 🏛️ Azure Governance Landing Zone (Terraform)
 
-[![Status](https://img.shields.io/badge/Status-Statically%20Validated-informational.svg)](#)
-[![Terraform Validate](https://github.com/sanjiivsingh/azure-landing-zone-governance/actions/workflows/terraform-validate.yml/badge.svg)](https://github.com/sanjiivsingh/azure-landing-zone-governance/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Terraform 1.9+](https://img.shields.io/badge/Terraform-1.9+-844FBA?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![Azure Provider v4+](https://img.shields.io/badge/AzureRM-v4.0+-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://registry.terraform.io/providers/hashicorp/azurerm/latest)
+[![CI/CD Validation](https://github.com/sanjiivsingh/azure-landing-zone-governance/actions/workflows/terraform-validate.yml/badge.svg)](https://github.com/sanjiivsingh/azure-landing-zone-governance/actions)
+[![Status: Statically Validated](https://img.shields.io/badge/Status-Governance_--_Statically_Validated-10B981?style=for-the-badge)](https://github.com/sanjiivsingh/azure-landing-zone-governance)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-An enterprise-grade, modular Terraform landing zone implementation providing **Azure Policy guardrails**, **naming & tagging standards**, and **security initiatives** aligned with the **Microsoft Cloud Adoption Framework (CAF)**.
+> **Reference Architecture · Statically Validated**  
+> An enterprise-grade, modular Terraform landing zone implementation providing **Azure Policy guardrails**, **naming & tagging standards**, and **security initiatives** aligned with the **Microsoft Cloud Adoption Framework (CAF)**. Detailed verification logs are in [docs/EVIDENCE.md](docs/EVIDENCE.md) and architectural decisions in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ---
 
@@ -12,19 +15,19 @@ An enterprise-grade, modular Terraform landing zone implementation providing **A
 
 ```mermaid
 flowchart TD
-    subgraph Hierarchy["🏢 Azure Management & Subscription Hierarchy"]
-        MG[Management Group / Subscription Scope]
+    subgraph Hierarchy["Azure Management & Subscription Hierarchy"]
+        MG["Management Group / Subscription Scope"]
     end
 
-    subgraph Initiative["📋 Corporate Governance Initiative"]
-        POL1[Location Guardrail: Approved Regions]
-        POL2[Security Guardrail: Storage TLS 1.2+ & HTTPS]
-        POL3[Tagging: Mandatory CostCenter & Owner]
+    subgraph Initiative["Corporate Governance Initiative"]
+        POL1["Location Guardrail: Approved Regions"]
+        POL2["Security Guardrail: Storage TLS 1.2+ & HTTPS"]
+        POL3["Tagging: Mandatory CostCenter & Owner"]
     end
 
-    subgraph Enforcement["🛡️ Continuous Policy Engine"]
-        AUDIT[Audit Mode: Reporting & Drift Detection]
-        DENY[Deny Mode: Blocks Non-Compliant Requests]
+    subgraph Enforcement["Continuous Policy Engine"]
+        AUDIT["Audit Mode: Reporting & Drift Detection"]
+        DENY["Deny Mode: Blocks Non-Compliant Requests"]
     end
 
     MG -->|Policy Assignment| Initiative
@@ -39,6 +42,7 @@ flowchart TD
 ---
 
 ## 🌟 Key Features
+
 - **Region Sovereignty Guardrails:** Restricts provisioning to authorized Azure regions (e.g., `eastus2`, `centralus`) to enforce data sovereignty.
 - **Data Protection Enforcement:** Denies storage account creation allowing HTTP plain-text or TLS versions below 1.2.
 - **Automated Tag Governance:** Custom policy definitions to mandate or inherit enterprise tags (`Environment`, `CostCenter`, `Owner`).
@@ -48,6 +52,7 @@ flowchart TD
 ---
 
 ## 📁 Repository Structure
+
 ```text
 azure-landing-zone-governance/
 ├── README.md
@@ -96,10 +101,21 @@ terraform apply
 ---
 
 ## 🛡️ DevSecOps & Validation
+
 This repository includes automated CI/CD validation:
 - **TFLint & Terraform Validate:** Validates syntax and provider configurations on every pull request.
 - **Checkov SAST:** Scans for compliance drift and CIS Azure benchmark alignment.
-- **Azure DevOps Pipeline:** Pre-configured YAML pipeline template under `pipelines/azure-devops/validation.yml`.
+- **Continuous Integration:** Fully automated workflow in GitHub Actions.
+
+---
+
+## 👨‍💻 Author & Cloud Consultant
+
+**Sanjeev Singh**  
+Senior Azure Cloud Architect & DevSecOps Platform Engineer  
+* 🌐 **Portfolio**: [sanjeevsingh.oneps.in](https://sanjeevsingh.oneps.in)  
+* 💼 **LinkedIn**: [linkedin.com/in/sanjiivsingh](https://linkedin.com/in/sanjiivsingh)  
+* 🐙 **GitHub**: [github.com/sanjiivsingh](https://github.com/sanjiivsingh)
 
 ---
 
